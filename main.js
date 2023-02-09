@@ -40,6 +40,11 @@ function cellClick() {
   for (let i in cell) {
     if (cell[i].innerHTML == player) {
       data.push(parseInt(cell[i].getAttribute('pos')));
+      if (player == "x") {
+        cell[i].classList.add('cellX');
+      } else {
+        cell[i].classList.add('cellO');
+      }
     }    
   }
 
@@ -82,6 +87,8 @@ function restart(text) {
   alert(text);
   for (let i = 0; i < cell.length; i++) {
     cell[i].innerHTML = '';
+    cell[i].classList.remove('cellX');
+    cell[i].classList.remove('cellO');
   }  
   updateStat();
 }
